@@ -5,7 +5,6 @@ class Person:
     def to_dict(self):
         return {"Name": self.name, "Age": self.age}
 
-
 class User(Person):
     def __init__(self, name, age, user_id, weight, height):
         super().__init__(name, age)
@@ -14,7 +13,17 @@ class User(Person):
         self.height = height
 
     def calculate_bmi(self):
-        return self.weight / (self.height / 100) ** 2
+        try:
+            if self.height <= 0:
+                raise ValueError("Рост должен быть больше 0.")
+            return self.weight / (self.height / 100) ** 2
+        except ZeroDivisionError:
+            print("Ошибка: Деление на ноль. Проверьте рост.") #хотя уже идет проверка сверху, но пусть будет :)
+            return None
+        except Exception as e:
+            print(f"Не удалось рассчитать ИМТ: {e}")
+            return None
+
     def to_dict(self):
         data = super().to_dict()
         data.update(
@@ -22,11 +31,10 @@ class User(Person):
                 "UserID": self.user_id,
                 "Weight": self.weight,
                 "Height": self.height,
-                "BMI": round(self.calculate_bmi(), 2),
+                "BMI": round(self.calculate_bmi(), 2) if self.calculate_bmi() else "Ошибка расчёта",
             }
         )
         return data
-
 
 class Trainer(Person):
     def __init__(self, name, age, trainer_id):
@@ -57,7 +65,13 @@ class Workout:
         self.exercises = []
 
     def add_exercise(self, exercise):
-        self.exercises.append(exercise)
+        try:
+            if not isinstance(exercise, Exercise):
+                raise TypeError("Можно добавлять только объекты класса Exercise.")
+            self.exercises.append(exercise)
+        except Exception as e:
+            print(f"Ошибка при добавлении упражнения: {e}")
+
     def to_dict(self):
         return {
             "Name": self.name,

@@ -1,0 +1,31 @@
+{
+    "Users": [
+        {
+            "Name": "Petr",
+            "Age": 30,
+            "UserID": 1,
+            "Weight": 79.0,
+            "Height": 179.0,
+            "BMI": 24.66
+        }
+    ],
+    "Trainers": [
+        {
+            "Name": "Valentin",
+            "Age": 57,
+            "TrainerID": 1
+        }
+    ],
+    "Workouts": [
+        {
+            "Name": "running",
+            "Exercises": [
+                {
+                    "Name": "run",
+                    "Duration": 50,
+                    "CaloriesBurned": 50
+                }
+            ]
+        }
+    ]
+}
