@@ -1,0 +1,59 @@
+{
+    "Users": [
+        {
+            "Name": "Ivan",
+            "Age": 30,
+            "UserID": 1,
+            "Weight": 80,
+            "Height": 180,
+            "BMI": 24.69
+        },
+        {
+            "Name": "Ann",
+            "Age": 25,
+            "UserID": 2,
+            "Weight": 60,
+            "Height": 165,
+            "BMI": 22.04
+        }
+    ],
+    "Trainers": [
+        {
+            "Name": "Mark",
+            "Age": 35,
+            "TrainerID": 1
+        },
+        {
+            "Name": "Mary",
+            "Age": 28,
+            "TrainerID": 2
+        }
+    ],
+    "Workouts": [
+        {
+            "Name": "Morning gym",
+            "Exercises": [
+                {
+                    "Name": "Sitting",
+                    "Duration": 10,
+                    "CaloriesBurned": 50
+                },
+                {
+                    "Name": "Jumping",
+                    "Duration": 5,
+                    "CaloriesBurned": 30
+                }
+            ]
+        },
+        {
+            "Name": "Intensive tr",
+            "Exercises": [
+                {
+                    "Name": "Running",
+                    "Duration": 15,
+                    "CaloriesBurned": 70
+                }
+            ]
+        }
+    ]
+}

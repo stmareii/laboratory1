@@ -1,14 +1,13 @@
 import json
-from models import FitnessApp, User, Trainer, Workout, Exercise
+from classes import FitnessApp, User, Trainer, Workout, Exercise
 
-#короче проснуться и дописатб в классесе to_dict ...
 class JSONSerializer:
     def __init__(self, app: FitnessApp):
         self.app = app
 
     def save_to_json(self, file_name: str) -> bool:
         try:
-            with open(file_name, 'w', encoding='utf-8') as f:
+            with open(file_name, "w", encoding="utf-8") as f:
                 json.dump(self.app.to_dict(), f, indent=4, ensure_ascii=False)
             return True
         except Exception as e:
@@ -17,7 +16,7 @@ class JSONSerializer:
 
     def load_from_json(self, file_name: str) -> FitnessApp:
         try:
-            with open(file_name, 'r', encoding='utf-8') as f:
+            with open(file_name, "r", encoding="utf-8") as f:
                 data = json.load(f)
             app = FitnessApp()
             # Загружаем пользователей
@@ -27,7 +26,7 @@ class JSONSerializer:
                     age=user_data["Age"],
                     user_id=user_data["UserID"],
                     weight=user_data["Weight"],
-                    height=user_data["Height"]
+                    height=user_data["Height"],
                 )
                 app.add_user(user)
             # Загружаем тренеров
@@ -35,7 +34,7 @@ class JSONSerializer:
                 trainer = Trainer(
                     name=trainer_data["Name"],
                     age=trainer_data["Age"],
-                    trainer_id=trainer_data["TrainerID"]
+                    trainer_id=trainer_data["TrainerID"],
                 )
                 app.add_trainer(trainer)
             # Загружаем тренировки
@@ -45,7 +44,7 @@ class JSONSerializer:
                     exercise = Exercise(
                         name=exercise_data["Name"],
                         duration=exercise_data["Duration"],
-                        calories_burned=exercise_data["CaloriesBurned"]
+                        calories_burned=exercise_data["CaloriesBurned"],
                     )
                     workout.add_exercise(exercise)
                 app.add_workout(workout)
