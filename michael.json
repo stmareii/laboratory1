@@ -1,0 +1,14 @@
+{
+    "Users": [
+        {
+            "Name": "Michael",
+            "Age": 18,
+            "UserID": 86,
+            "Weight": 55.0,
+            "Height": 166.0,
+            "BMI": 19.96
+        }
+    ],
+    "Trainers": [],
+    "Workouts": []
+}

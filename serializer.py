@@ -3,7 +3,7 @@ from classes import FitnessApp, User, Trainer, Workout, Exercise
 
 class JSONSerializer:
     def __init__(self, app: FitnessApp):
-        self.app = app
+        self.app: FitnessApp = app
 
     def save_to_json(self, file_name: str) -> bool:
         try:
